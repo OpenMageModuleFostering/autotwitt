@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <magestore translate="label">
+            <label>Magestore Extension</label>
+            <sort_order>400</sort_order>
+        </magestore>
+    </tabs>
+	<sections>
+        <autotwitt translate="label" module="autotwitt">
+            <class>separator-top</class>
+            <label>Auto Twitt</label>
+            <tab>magestore</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>300</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+				<general translate="label">
+                    <label>General Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+						<enable translate="label">
+                            <label>Enable AutoTwitt</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable>
+												
+						<template_message_add_cart translate="label">
+							<label>Template Message for Add Cart</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Available variables:<![CDATA[ <br /> ]]> <![CDATA[{product_name}]]> - product's name<![CDATA[ <br/>{product_link}]]> - product's link<![CDATA[ <br/>{store_link}]]> - link to your store</comment>
+                        </template_message_add_cart>
+						
+						<template_message_view_product translate="label">
+							<label>Template Message for View Product</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Available variables:<![CDATA[ <br/> ]]> <![CDATA[{product_name}]]> - product's name<![CDATA[ <br/>{product_link}]]> - product's link<![CDATA[ <br/>{store_link}]]> - link to your store</comment>
+                        </template_message_view_product>
+						
+						<template_message_place_order translate="label">
+							<label>Template Message for Place Order</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Available variables:<![CDATA[ <br /> ]]> <![CDATA[{product_links}]]> - list of product's link<![CDATA[ <br/>{items_count}]]> - number of items in order<![CDATA[ <br/>{store_link}]]> - link to your store</comment>
+                        </template_message_place_order>
+						
+						<day_frequency translate="label">
+							<label>Frequency of day to send to twitter</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[<span style="color:red">Frequency must be an integer greater than 0</span>]]></comment>
+                        </day_frequency>
+						
+						<week_frequency translate="label">
+							<label>Frequency of week to send to twitter</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[<span style="color:red">Frequency must be an integer greater than 0</span>]]></comment>
+                        </week_frequency>
+						
+					</fields> 
+				</general>	
+			
+                <site_events translate="label">
+                    <label>Event to sumit product on Twitter</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>                        
+						<view_product translate="label">
+                            <label>View Product Page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </view_product>
+						
+						<add_to_cart translate="label">
+                            <label>After add a product to cart</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </add_to_cart>
+						
+						<place_order_after translate="label">
+							<label>After place order</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+                        </place_order_after>
+                     </fields> 
+				</site_events>	 
+				
+				
+				<account translate="label">
+                    <label>Twitter Account</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+						<username translate="label">
+                            <label>Twitter Username</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </username>
+						
+						<password translate="label">
+                            <label>Twitter Password</label>
+                            <frontend_type>password</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </password>
+					</fields> 
+				</account>	
+			
+            </groups>
+        </autotwitt>
+        
+    </sections>
+</config>

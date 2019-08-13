@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<config>
+    <default>
+		<autotwitt>
+			<general>
+				<enable>1</enable>
+				<template_message_add_cart>Product: {product_link} was added to cart at: {store_link}</template_message_add_cart>
+				<template_message_view_product>Product: {product_link} was viewed at: {store_link}</template_message_view_product>
+				<template_message_place_order>There is a new order with {items_count} items(s) includes:{product_links} at: {store_link} </template_message_place_order>
+				<day_frequency>100</day_frequency>
+				<week_frequency>500</week_frequency>
+			</general>
+			<site_events>
+				<view_product>1</view_product>
+				<add_to_cart>1</add_to_cart>
+				<place_order_after>1</place_order_after>
+			</site_events>
+		</autotwitt>
+	</default>
+	<modules>
+        <Magestore_Autotwitt>
+            <version>1.0.0</version>
+        </Magestore_Autotwitt>
+    </modules>
+    <frontend>
+        <routers>
+            <autotwitt>
+                <use>standard</use>
+                <args>
+                    <module>Magestore_Autotwitt</module>
+                    <frontName>autotwitt</frontName>
+                </args>
+            </autotwitt>
+        </routers>
+        
+		
+		<events>
+	      <checkout_cart_product_add_after> 
+	        <observers>
+	          <magestore_autotwitt_observer>
+	            <type>singleton</type>
+	            <class>autotwitt/autotwitt</class>
+				<method>add_product_to_twitter</method>
+	          </magestore_autotwitt_observer>
+	        </observers>
+	      </checkout_cart_product_add_after> 
+		  
+		  <catalog_controller_product_view>
+			<observers>
+	          <magestore_autotwitt_observer>
+	            <type>singleton</type>
+	            <class>autotwitt/autotwitt</class>
+	            <method>add_view_product_to_twitter</method>
+	          </magestore_autotwitt_observer>
+	        </observers>
+		  </catalog_controller_product_view>
+		  
+		    <sales_order_place_after>
+				<observers>
+					<magestore_autotwitt_observer>
+						<type>model</type>
+						<class>autotwitt/autotwitt</class>
+						<method>add_order_to_twitter</method>
+					</magestore_autotwitt_observer>
+				</observers>
+			</sales_order_place_after>
+	    </events>
+    </frontend>
+   
+    <adminhtml>
+		
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <autotwitt translate="title" >
+                                            <title>Magestore</title>
+                                            <sort_order>50</sort_order>
+                                        </autotwitt>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		
+    </adminhtml>   
+    <global>
+        <models>
+            <autotwitt>
+                <class>Magestore_Autotwitt_Model</class>
+                <resourceModel>autotwitt_mysql4</resourceModel>
+            </autotwitt>            
+        </models>    
+		 <helpers>
+            <autotwitt>
+                <class>Magestore_Autotwitt_Helper</class>
+            </autotwitt>
+        </helpers>
+    </global>
+	<default>
+		<autotwitt>
+			<general>
+				<enable>0</enable>
+			</general>
+		</autotwitt>
+	</default>
+</config>
